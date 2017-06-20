@@ -77,5 +77,5 @@ Start the program. You need to:
 1. Play with changing theta1 and see how it affects the cost.
 2. Find the range of alpha at which gradient descent will converge to the value of 
 theta1 where the cost is lowest.
-3. What part does alpha play in a step of gradient descent?
-4. How do you think the linear regression algorithm works? 
+3. What part does alpha play in a step of gradient descent? (Hint: what happens when it is too big? What happends when it is too small?).
+4. How do you think gradient descent works? 
