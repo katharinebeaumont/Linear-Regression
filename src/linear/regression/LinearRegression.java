@@ -48,10 +48,10 @@ public class LinearRegression extends Application {
     private Label costFunction;
     private final String green_background = "-fx-background-color: #a5ea8a;";
     
-    private final SpinnerValueFactory.DoubleSpinnerValueFactory theta_1_spinner = new SpinnerValueFactory.DoubleSpinnerValueFactory(-1.0, 3, initial_theta_1, 0.05);
+    private final SpinnerValueFactory.DoubleSpinnerValueFactory theta_1_spinner = new SpinnerValueFactory.DoubleSpinnerValueFactory(-10, 10, initial_theta_1, 0.05);
     private final Slider alpha_slider = new Slider(0, (initial_alpha*2), initial_alpha);  
 
-    private Spinner theta_1 = new Spinner(theta_1_spinner);
+    private final Spinner theta_1 = new Spinner(theta_1_spinner);
         
         
     @Override
@@ -151,7 +151,7 @@ public class LinearRegression extends Application {
     public void buildSpinners() {
         
         HBox hboxTheta1 = new HBox();
-        hboxTheta1.setPadding(new Insets(2, 5, 2, 5));
+        hboxTheta1.setPadding(new Insets(5, 5, 5, 5));
 
         theta_1_spinner.valueProperty().addListener((
             ObservableValue<? extends Number> ov, 
@@ -163,27 +163,28 @@ public class LinearRegression extends Application {
         final Label theta_1_desc = new Label("\u03B81 (gradient)");
         theta_1.setMaxWidth(100);
         
-        hboxTheta1.getChildren().addAll(theta_1);
+        hboxTheta1.getChildren().addAll(theta_1, theta_1_desc);
         
         HBox hboxAlpha = new HBox();
         hboxAlpha.setPadding(new Insets(5, 5, 5, 5));
         
         alpha_slider.setShowTickLabels(true);
         alpha_slider.setShowTickMarks(true);
-        alpha_slider.setMajorTickUnit(0.0001);
+        alpha_slider.setMajorTickUnit(0.5);
         alpha_slider.setPrefWidth(200);
         final Label alpha_value_label = new Label();
-        alpha_value_label.setText(String.format(" %.4f ", initial_alpha));
+        alpha_value_label.setText(String.format(" %.1f ", initial_alpha));
         
         alpha_slider.valueProperty().addListener((
             ObservableValue<? extends Number> ov, 
             Number old_val, Number new_val) -> {
-                alpha_value_label.setText(String.format("%.4f", new_val));
+                alpha_value_label.setText(String.format("%.1f", new_val));
         });
-        hboxAlpha.getChildren().addAll(alpha_slider);
-        final Label alpha_desc = new Label(" Learning Rate ");
+        final Label alpha_desc = new Label("Learning Rate \u03B1 (scaled)");
+        hboxAlpha.getChildren().addAll(alpha_slider, alpha_value_label, alpha_desc);
+
         
-        flowSliders.getChildren().addAll(hboxTheta1, theta_1_desc, hboxAlpha, alpha_value_label, alpha_desc);
+        flowSliders.getChildren().addAll(hboxTheta1, hboxAlpha);
     }
 
     private void resetRegressionLine() {
