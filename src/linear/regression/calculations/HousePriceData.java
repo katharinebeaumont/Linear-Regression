@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package linear.regression.calculations;
 
 import java.io.IOException;
@@ -45,7 +40,7 @@ public class HousePriceData {
         ArrayList houseData = new ArrayList<>();
         List<String> lines = new ArrayList();
         try {
-            lines = Files.readAllLines(Paths.get("src/resources/housePriceData.csv"), Charset.defaultCharset());
+            lines = Files.readAllLines(Paths.get("src/resources/data/housePriceData.csv"), Charset.defaultCharset());
         } catch (IOException io) {
             System.out.println("problem loading file: " + io);
         }

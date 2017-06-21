@@ -31,7 +31,7 @@ import linear.regression.view.ThetaChartBuilder;
  *
  * @author katharine
  * Written in a hurry. Needs refactoring. 
- * Don't read this code. It's not pretty.
+ * Don't read the code in this class. It's not pretty.
  */
 public class LinearRegression extends Application {
     
@@ -78,7 +78,6 @@ public class LinearRegression extends Application {
             
             @Override
             public void handle(ActionEvent event) {
-                    System.out.println("Taking step");
                     takeStep();
                 }
         });
@@ -117,7 +116,7 @@ public class LinearRegression extends Application {
         HBox boxCostImg = new HBox();
         boxCostImg.setPadding(new Insets(5, 5, 5, 5));
         
-        String path = "/resources/cost.png";
+        String path = "/resources/images/cost.png";
         ImagePattern costImg = new ImagePattern(new Image(path));
         Rectangle r = new Rectangle(300,70);
         r.setFill(costImg);
@@ -141,7 +140,7 @@ public class LinearRegression extends Application {
         root.getChildren().add(bp);
         Scene scene = new Scene(root, SCREEN_WIDTH, SCREEN_HEIGHT);
         
-        scene.getStylesheets().add("/resources/regression.css");
+        scene.getStylesheets().add("/resources/static/css/regression.css");
                 
         primaryStage.setTitle("Linear Regresion");
         primaryStage.setScene(scene);
