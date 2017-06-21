@@ -69,7 +69,7 @@ Then we want to know what the 'weight' of each of them is on the output, so we'l
     h(x) = (θ0 * x0) + (θ1 * x1) + (θ2 * x2) + (θ3 * x3) + ....
 
 
-![](https://github.com/katharinebeaumont/Linear-Regression/blob/master/src/images/Gradient%20descent.png)
+![](https://github.com/katharinebeaumont/Linear-Regression/blob/master/src/resources/images/Gradient%20descent.png)
 
 What this is doing is adjusting the theta values a little bit each time. We're going to look at what this means.
 Take note of the α symbol - this is 'alpha'.
